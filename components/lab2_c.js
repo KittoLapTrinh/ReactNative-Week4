@@ -4,7 +4,7 @@ import { CheckBox } from 'react-native-web';
 
 
 export default function Lab2_c() {
-    let [len,setLen] = useState()
+    let [length,setLength] = useState()
     let [check1, setCheck1] = useState(false)
     let [check2, setCheck2] = useState(false)
     let [check3, setCheck3] = useState(false)
@@ -13,17 +13,15 @@ export default function Lab2_c() {
 
     function randomPass(c1, c2, c3, c4) {
         const characters = [];
-    
         if (c1) characters.push('abcdefghijklmnopqrstuvwxyz');
         if (c2) characters.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
         if (c3) characters.push('0123456789');
         if (c4) characters.push('!@#$%^&*()_+[]{}|;:,.<>?');
-    
         if (characters.length === 0) {
           return 'Please select at least one character type.';
         }
     
-        const passwordLength = len || 8; // Default to a length of 8 if len is not set.
+        const passwordLength = length || 8; // Default to a length of 8 if len is not set.
         let password = '';
     
         for (let i = 0; i < passwordLength; i++) {
@@ -35,12 +33,6 @@ export default function Lab2_c() {
         return password;
       }
 
-
-    
-    
- 
-
-
     return(
         <View style={styles.container} >
             <View style={styles.top}>
@@ -51,7 +43,7 @@ export default function Lab2_c() {
                 
                 
                 <View style={styles.top2}>
-                    <TextInput id='pass' style={{ flex: 0.7, fontSize:25, backgroundColor:'#151537', padding:12, color:'#9595a1'}} placeholder='Show password!'></TextInput>
+                    <TextInput id='pass' style={{ flex: 0.7, fontSize:25, backgroundColor:'#151537', padding:12, color:'#9595a1'}} ></TextInput>
                 </View>
                 
                 
@@ -61,14 +53,12 @@ export default function Lab2_c() {
                 <View style={styles.center1}>
                     <Text style={{ flex: 3, fontSize: 20, fontWeight: 'bold', color: 'white', alignItems: 'center' }}>Password length</Text>
                     <TextInput id='lengthP' style={{ flex: 2.5, backgroundColor: '#ffffff', width: 20, fontSize: 20, marginRight: 10, marginBottom: 20 }}
-                    onChange={() => { setLen(document.getElementById('lengthP').value); randomPass(check1, check2, check3, check4)}}
-                    value={len}
-                    ></TextInput>
+                    onChange={() => { setLength(document.getElementById('lengthP').value); randomPass(check1, check2, check3, check4)}}
+                    value={length}></TextInput>
                 </View>
                 <View style={styles.center2}>
                     <Text style={{ flex: 3, fontSize: 20, fontWeight: 'bold', color: 'white', alignItems: 'center' }}>Include lower case letters</Text>
                     <CheckBox style={{ flex: 0.2 , paddingRight: 10, marginTop:8}} checked={check1} onPress={()=> {setCheck1(!check1); randomPass(!check1, check2, check3, check4);}}>
-                        
                     </CheckBox>
                 </View>
                 <View style={styles.center3}>
